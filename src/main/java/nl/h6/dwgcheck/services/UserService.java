@@ -16,8 +16,8 @@ public class UserService {
     }
 
     public ResponseEntity createUser(UserModel userModel) {
-        if (!userRepository.userExists(userModel)) {
-            userRepository.persistUser(userModel);
+        if (userRepository.findUserByUsername(userModel.getUsername()) == null) {
+            userRepository.save(userModel);
             return new ResponseEntity<>(HttpStatus.CREATED);
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
