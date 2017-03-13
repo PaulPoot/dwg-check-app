@@ -16,6 +16,10 @@ public class ChecklistService {
         this.checklistRepository = checklistRepository;
     }
 
+    public ChecklistModel getChecklist(int id){
+        return checklistRepository.findOne(id);
+    }
+
     public List<ChecklistModel> getChecklists(){
         return checklistRepository.findAll();
     }

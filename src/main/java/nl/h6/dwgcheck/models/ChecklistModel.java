@@ -10,6 +10,7 @@ public class ChecklistModel {
 
     @Id @GeneratedValue
     private int id;
+    private String trainId;
     private Instant dateTime;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "checklistModel")
@@ -21,6 +22,14 @@ public class ChecklistModel {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getTrainId() {
+        return trainId;
+    }
+
+    public void setTrainId(String trainId) {
+        this.trainId = trainId;
     }
 
     public Instant getDateTime() {
@@ -35,7 +44,7 @@ public class ChecklistModel {
         return wagons;
     }
 
-    public void setWagon(List<ChecklistWagonModel> wagons) {
+    public void setWagons(List<ChecklistWagonModel> wagons) {
         this.wagons = wagons;
     }
 

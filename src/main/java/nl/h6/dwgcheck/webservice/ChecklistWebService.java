@@ -18,10 +18,16 @@ public class ChecklistWebService {
         this.checklistService = checklistService;
     }
 
+    @GetMapping("{id}")
+    public ChecklistModel getChecklist(@PathVariable(value="id") int id){
+        return checklistService.getChecklist(id);
+    }
+
     @GetMapping
     public List<ChecklistModel> getChecklists(){
         return checklistService.getChecklists();
     }
+
     @PostMapping
     public ResponseEntity createChecklist(@RequestBody ChecklistModel checklistModel){
         return checklistService.createUser(checklistModel);
