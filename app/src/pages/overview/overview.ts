@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
+import { User } from '../../providers/user';
+
 /*
   Generated class for the Overview page.
 
@@ -9,14 +11,14 @@ import { NavController, NavParams } from 'ionic-angular';
 */
 @Component({
   selector: 'page-overview',
-  templateUrl: 'overview.html'
+  templateUrl: 'overview.html',
+  providers: [User]
 })
 export class OverviewPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, private userService: User) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OverviewPage');
   }
-
 }
