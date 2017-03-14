@@ -1,0 +1,15 @@
+page-overview {
+    ion-item {
+        padding: 16px 32px !important;
+        border-bottom: 1px solid color($colors, light) !important;
+        
+        h3 {
+            margin-right: 48px !important;
+            white-space: normal !important;
+        }
+    }
+
+    ion-fab {
+        margin: 0 32px 32px 0 !important;
+    }
+}
