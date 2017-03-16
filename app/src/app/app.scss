@@ -14,3 +14,17 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.checkbox--big .checkbox-icon {
+    width: 120px;
+    height: 120px;
+    background-color: #fff;
+    border-color: color($colors, dark);
+}
+
+.checkbox--big .checkbox-icon .checkbox-inner {
+    top: 10px;
+    left: 40px;
+    width: 40px;
+    height: 80px;
+    border-color: color($colors, dark);
+}

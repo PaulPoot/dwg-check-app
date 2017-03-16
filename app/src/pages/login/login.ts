@@ -39,7 +39,6 @@ export class LoginPage {
       this.userService.loginUser(this.user).then((result) => {
         if (result == true) {
           this.navCtrl.setRoot(OverviewPage);
-          
         }
       });
     }
