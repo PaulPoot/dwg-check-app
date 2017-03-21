@@ -14,7 +14,7 @@ import { OverviewPage } from '../overview/overview';
 @Component({
   selector: 'page-login',
   templateUrl: 'login.html',
-    providers: [User]
+  providers: [User]
 })
 export class LoginPage {
   user = {

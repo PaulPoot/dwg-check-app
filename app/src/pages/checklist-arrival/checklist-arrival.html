@@ -8,14 +8,88 @@
 
   <ion-navbar>
     <ion-title>Aankomst Trein</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="saveChecklist()">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <ion-item>
-    <ion-label>Daenerys Targaryen</ion-label>
-    <ion-checkbox class="checkbox--big" item-right></ion-checkbox>
-  </ion-item>
+  <ion-list no-lines>
+    <ion-list-header>
+      Algemeen
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Alle wagons op de treinlijst zijn aangekomen</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.allWagonsArrived"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Er zijn geen extra wagons binnen gekomen</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.noExtraWagons"></ion-checkbox>
+    </ion-item>
+
+    <ion-list-header>
+      Staat van de wagons
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Er zijn geen wagons met een blauwe brief</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.noWagonsBlueLetter"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Er zijn geen wagons met een rode brief</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.noWagonsRedLetter"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Keuringsdata van de wagons zijn niet verlopen</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.wagonDatesNotExpired"></ion-checkbox>
+    </ion-item>
+
+    <ion-list-header>
+      Staat van de tanks
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Tanks van de wagons zijn in goede staat / geen schade</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.noWagonTanksDamaged"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Keuringsdata van de tanks zijn niet verlopen</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.tankDatesNotExpired"></ion-checkbox>
+    </ion-item>
+
+    <ion-list-header>
+      Staat van de afsluiters
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Alle afsluiters van de wagons zijn goed gesloten (beide zijden van de wagons</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.allLidsClosed"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Geen van de afsluiters aan de wagons lekt</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.noLidsLeak"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>De afsluiters vertonen geen schade</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.noLidsDamaged"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <h2>Procedure bij afwijkingen</h2>
+  <p>
+    Bij een geconstateerde afwijking (een niet OK) dient de controlekamer geinformeerd te worden. 
+    Tevens hieronder wagon nummer(s) vermelden. 
+    In geval van lekkage, opvangbak plaatsen. 
+    In geval van een rode brief, wagon niet meer verplaatsen.
+  </p>
+
+  <ion-list no-lines>
+    <ion-item>
+      <ion-label floating>Wagonnummer(s), gescheiden met een komma</ion-label>
+      <ion-input [(ngModel)]="checklist.wagonNumbers"></ion-input>
+    </ion-item>
+  </ion-list>
 </ion-content>

@@ -6,6 +6,7 @@ import { ChecklistDeparturePage } from '../checklist-departure/checklist-departu
 import { ChecklistLocomotivePage} from '../checklist-locomotive/checklist-locomotive';
 
 import { User } from '../../providers/user';
+import { Checklist } from '../../providers/checklist';
 
 /*
   Generated class for the Overview page.
@@ -16,20 +17,27 @@ import { User } from '../../providers/user';
 @Component({
   selector: 'page-overview',
   templateUrl: 'overview.html',
-  providers: [User]
+  providers: [User, Checklist]
 })
 export class OverviewPage {
-
   checklistMap = {
     arrival: ChecklistArrivalPage,
     departure: ChecklistDeparturePage,
     locomotive: ChecklistLocomotivePage,
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private userService: User) {}
+  checklistArrival: null;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private userService: User, private checklistService: Checklist) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad OverviewPage');
+  }
+
+  ionViewWillEnter() {
+    this.checklistService.getChecklist("checklistArrival").then((val) => {
+      this.checklistArrival = val;
+    })
   }
 
   openChecklist(checklist) {
