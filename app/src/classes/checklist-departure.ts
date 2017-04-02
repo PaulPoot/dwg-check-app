@@ -1,11 +1,11 @@
 export class ChecklistDeparture {
-  allWagonsArrived: boolean;
-  noExtraWagons: boolean;
-  noWagonsBlueLetter: boolean;
-  noWagonsRedLetter: boolean;
+  allWagonsListed: boolean;
+  trainlistEqualsWagonOrder: boolean;
+  wagonsNotDamaged: boolean;
   wagonDatesNotExpired: boolean;
   noWagonTanksDamaged: boolean;
   tankDatesNotExpired: boolean;
+  outsideTankNoProduct: boolean;
   allLidsClosed: boolean;
   noLidsLeak: boolean;
   noLidsDamaged: boolean;
@@ -14,13 +14,13 @@ export class ChecklistDeparture {
   saved: boolean;
   
   constructor() { 
-    this.allWagonsArrived = false;
-    this.noExtraWagons = false;
-    this.noWagonsBlueLetter = false;
-    this.noWagonsRedLetter = false;
+    this.allWagonsListed = false;
+    this.trainlistEqualsWagonOrder = false;
+    this.wagonsNotDamaged = false;
     this.wagonDatesNotExpired = false;
     this.noWagonTanksDamaged = false;
     this.tankDatesNotExpired = false;
+    this.outsideTankNoProduct = false;
     this.allLidsClosed = false;
     this.noLidsLeak = false;
     this.noLidsDamaged = false;

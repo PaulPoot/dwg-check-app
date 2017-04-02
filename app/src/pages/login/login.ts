@@ -28,6 +28,15 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  ionViewWillEnter() {
+    this.userService.getActiveUser().then((val) => {
+      if (val) {
+        this.user = JSON.parse(val);
+        this.login();
+      }
+    });
+  }
+
   register() {
     if (this.user.username && this.user.password) {
       this.userService.createUser(this.user);

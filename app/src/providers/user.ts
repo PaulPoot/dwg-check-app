@@ -13,6 +13,7 @@ import { Storage } from '@ionic/storage';
 @Injectable()
 export class User {
   usersKey = 'users';
+  activeUserKey = 'activeUser';
 
   constructor(public http: Http, public storage: Storage) {
     console.log('Hello User Provider');
@@ -52,6 +53,7 @@ export class User {
           if (user.username == savedUser.username) {
             if (user.password == savedUser.password) {
               console.log("Login OK");
+              this.setActiveUser(user);
               return true;
             } else {
               console.log("Login FAIL: Password");
@@ -92,5 +94,13 @@ export class User {
         return false;
       }
     });
+  }
+
+  getActiveUser() {
+    return this.storage.get(this.activeUserKey);
+  }
+
+  setActiveUser(user) {
+    return this.storage.set(this.activeUserKey, JSON.stringify(user));
   }
 }

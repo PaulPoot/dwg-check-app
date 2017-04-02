@@ -33,6 +33,7 @@ export class OverviewPage {
   checklistArrival: ChecklistArrival;
   checklistDeparture: ChecklistDeparture;
   checklistLocomotive: ChecklistLocomotive;
+  readyForSubmit: boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private userService: User, private checklistService: Checklist) {
     this.checklistArrival = new ChecklistArrival();
@@ -46,11 +47,41 @@ export class OverviewPage {
 
   ionViewWillEnter() {
     this.checklistService.getChecklist("checklistArrival").then((val) => {
-      this.checklistArrival = val;
+      if (val) {
+        this.checklistArrival = val;
+      }
+
+      this.checklistService.getChecklist("checklistDeparture").then((val) => {
+        if (val) {
+          this.checklistDeparture = val;
+        }
+
+        this.checklistService.getChecklist("checklistLocomotive").then((val) => {
+          if (val) {
+            this.checklistLocomotive = val;
+          }
+
+          if (this.checklistLocomotive.saved) {
+            if (this.checklistArrival.saved || this.checklistDeparture.saved) {
+              this.readyForSubmit = true;
+            }
+          }
+        });
+      });
     });
-    this.checklistService.getChecklist("checklistDeparture").then((val) => {
-      this.checklistDeparture = val;
+  }
+
+  submitChecklists() {
+    this.checklistService.deleteChecklist("checklistArrival").then((val) => {
+      this.checklistArrival = new ChecklistArrival();
     });
+    this.checklistService.deleteChecklist("checklistDeparture").then((val) => {
+      this.checklistDeparture = new ChecklistDeparture();
+    });
+    this.checklistService.deleteChecklist("checklistLocomotive").then((val) => {
+      this.checklistLocomotive = new ChecklistLocomotive();
+    });
+    this.readyForSubmit = false;
   }
 
   openChecklist(checklist) {

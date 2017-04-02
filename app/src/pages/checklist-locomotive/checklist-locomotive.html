@@ -1,5 +1,5 @@
 <!--
-  Generated template for the ChecklistLocomotive page.
+  Generated template for the ChecklistDeparture page.
 
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
@@ -7,12 +7,120 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>ChecklistLocomotive</ion-title>
+    <ion-title>Locomotief</ion-title>
+
+    <ion-buttons end>
+      <button ion-button icon-only (click)="saveChecklist()">
+        <ion-icon name="checkmark"></ion-icon>
+      </button>
+    </ion-buttons>  
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+  <ion-list no-lines>
+    <ion-list-header>
+      Algemeen
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Locomotief vrij van afval en spullen die daar niet horen te zijn</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.locomotiveIsClean"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Geel 'high visibility' vest (3x)</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.highVisibilityJacket"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Alarm- of storingsmeldingen in display</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.notificationsOnDisplay"></ion-checkbox>
+    </ion-item>
 
+    <ion-list-header>
+      Ontwateren tanks
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Water is afgetapt uit compressorvat</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.noWaterInTank"></ion-checkbox>
+    </ion-item>
+
+    <ion-list-header>
+      Signaleringen
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Verlichting buitenzijde</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.outsideLit"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Zwaailicht</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.flashingLight"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Verlichting binnenzijde</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.insideLit"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Claxon</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.claxon"></ion-checkbox>
+    </ion-item>
+
+    <ion-list-header>
+      Wielen en aandrijving
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Geen zichtbare afwijkingen op wielen</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.wheelsInOrder"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Geen zichtbare afwijkingen op aandrijfstangen</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.barsInOrder"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>Geen zichtbare afwijkingen op vetpotten</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.greasePotInOrder"></ion-checkbox>
+    </ion-item>
+
+    <ion-list-header>
+      Lekkages
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Geen zichtbare lekkages onder de locomotief</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.noLeaks"></ion-checkbox>
+    </ion-item>
+
+    <ion-list-header>
+      Brandstofniveau
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Brandstofniveau is hoger dan 50%</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.sufficientFuel"></ion-checkbox>
+    </ion-item>
+
+    <ion-list-header>
+      Sporen en wissels
+    </ion-list-header>
+    <ion-item>
+      <ion-label>Alle sporen zijn vrij van obstakels en veilig te berijden</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.allTracksFree"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>De wissels zijn goed gangbaar en sluiten goed aan</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.switchesInOrder"></ion-checkbox>
+    </ion-item>
+  </ion-list>
+
+  <h2>Procedure bij afwijkingen</h2>
+  <p>
+    Bij een geconstateerde afwijking dient de vervolgactie uitgevoerd te worden
+    en dient de operator hieronder een aantekening te maken. Voor een te laag
+    brandstofniveau volstaat alleen een email naar de TD.
+  </p>
+
+  <ion-list no-lines>
+    <ion-item>
+      <ion-label floating>Aantekeningen, gescheiden met een puntkomma</ion-label>
+      <ion-input [(ngModel)]="checklist.wagonNumbers"></ion-input>
+    </ion-item>
+  </ion-list>
 </ion-content>

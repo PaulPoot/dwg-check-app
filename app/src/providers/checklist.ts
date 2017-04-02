@@ -26,5 +26,9 @@ export class Checklist {
   saveChecklist(key: string, checklist) {
     return this.storage.set(key, JSON.stringify(checklist));
   }
+
+  deleteChecklist(key: string) {
+    return this.storage.remove(key);
+  }
  
 }

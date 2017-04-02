@@ -25,24 +25,20 @@
       Algemeen
     </ion-list-header>
     <ion-item>
-      <ion-label>Alle wagons op de treinlijst zijn aangekomen</ion-label>
-      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.allWagonsArrived"></ion-checkbox>
+      <ion-label>Alle wagons die gaan vertrekken staan op de treinlijst</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.allWagonsListed"></ion-checkbox>
     </ion-item>
     <ion-item>
-      <ion-label>Er zijn geen extra wagons binnen gekomen</ion-label>
-      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.noExtraWagons"></ion-checkbox>
+      <ion-label>De treinlijst volgorde en de wagonvolgorde komen overeen</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.trainlistEqualsWagonOrder"></ion-checkbox>
     </ion-item>
 
     <ion-list-header>
       Staat van de wagons
     </ion-list-header>
     <ion-item>
-      <ion-label>Er zijn geen wagons met een blauwe brief</ion-label>
-      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.noWagonsBlueLetter"></ion-checkbox>
-    </ion-item>
-    <ion-item>
-      <ion-label>Er zijn geen wagons met een rode brief</ion-label>
-      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.noWagonsRedLetter"></ion-checkbox>
+      <ion-label>De wagons en wielstellen zijn niet beschadigd</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.wagonsNotDamaged"></ion-checkbox>
     </ion-item>
     <ion-item>
       <ion-label>Keuringsdata van de wagons zijn niet verlopen</ion-label>
@@ -59,6 +55,10 @@
     <ion-item>
       <ion-label>Keuringsdata van de tanks zijn niet verlopen</ion-label>
       <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.tankDatesNotExpired"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>De buitenkant van de tank is vrij van product</ion-label>
+      <ion-checkbox class="checkbox--big" item-right [(ngModel)]="checklist.outsideTankNoProduct"></ion-checkbox>
     </ion-item>
 
     <ion-list-header>
